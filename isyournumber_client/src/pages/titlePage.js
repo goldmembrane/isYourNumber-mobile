@@ -44,7 +44,7 @@ const titlePageStyles = StyleSheet.create({
         height: 60,
         alignSelf: 'center',
         backgroundColor: '#f68084',
-        marginTop: 50,
+        marginTop: 30,
     },
 
     // show ranks button text style

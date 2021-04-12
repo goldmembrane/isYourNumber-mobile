@@ -11,7 +11,7 @@ const settingPageStyles = StyleSheet.create({
         height: 80,
         alignSelf: 'center',
         backgroundColor: '#38f9d7',
-        marginTop: 150,
+        marginTop: 200,
     },
 
     // random number box text style

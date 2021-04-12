@@ -48,17 +48,44 @@ const mainGamePageStyles = StyleSheet.create({
         height: 200,
     },
 
+    // main game below box test style
+    gameAnswerBelowButtonBoxText: {
+        fontSize: 30,
+        textAlign: 'center',
+        color: '#ffffff',
+        fontWeight: 'bold',
+        lineHeight: 200,
+    },
+
     // main game answer box style
     gameAnswerButtonBox: {
         flex: .4,
         backgroundColor: '#e5b2ca',
     },
 
+    // main game answer box text style
+    gameAnswerButtonBoxText: {
+        fontSize: 30,
+        textAlign: 'center',
+        color: '#ffffff',
+        fontWeight: 'bold',
+        lineHeight: 200,
+    },
+
     // main game among answer button box
     gameAnswerAmongButtonBox: {
         flex: .3,
         backgroundColor: '#13547a',
-    }
+    },
+
+    // main game among answer button text box
+    gameAnswerAmongButtonBoxText: {
+        fontSize: 30,
+        textAlign: 'center',
+        color: '#ffffff',
+        fontWeight: 'bold',
+        lineHeight: 200,
+    },
 })
 
 // main game page의 화면을 구성할 코드
@@ -73,13 +100,13 @@ const MainGamePage = () => {
             </View>
             <View style = {mainGamePageStyles.gameSelectButtonCollection}>
                 <TouchableOpacity style = {mainGamePageStyles.gameAnswerBelowButtonBox}>
-                    <Text></Text>
+                    <Text style = {mainGamePageStyles.gameAnswerBelowButtonBoxText}>낮다</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style = {mainGamePageStyles.gameAnswerButtonBox}>
-                    <Text></Text>
+                    <Text style = {mainGamePageStyles.gameAnswerButtonBoxText}>맞다</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style = {mainGamePageStyles.gameAnswerAmongButtonBox}>
-                    <Text></Text>
+                    <Text style = {mainGamePageStyles.gameAnswerAmongButtonBoxText}>높다</Text>
                 </TouchableOpacity>
             </View>
         </>

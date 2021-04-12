@@ -64,7 +64,7 @@ const TitlePage = ({navigation}) => {
                 <Text style = {titlePageStyles.titleBoxText}>Is Your Number?</Text>
             </View>
             {/* game start button box */}
-            <TouchableOpacity style = {titlePageStyles.startGameButtonBox}>
+            <TouchableOpacity style = {titlePageStyles.startGameButtonBox} onPress = {() => navigation.navigate('Setting')}>
                 <Text style = {titlePageStyles.startGameButtonBoxText}>START</Text>
             </TouchableOpacity>
             {/* show game ranks button box */}

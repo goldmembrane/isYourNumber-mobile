@@ -5,14 +5,16 @@ import { View, Text } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { TitlePage } from './src/pages'
+import { SettingPage } from './src/pages'
 
 const Stack = createStackNavigator()
 
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator initialRouteName = 'Title'>
         <Stack.Screen name = 'Title' component = {TitlePage} />
+        <Stack.Screen name = 'Setting' component = {SettingPage} />
       </Stack.Navigator>
     </NavigationContainer>
   )

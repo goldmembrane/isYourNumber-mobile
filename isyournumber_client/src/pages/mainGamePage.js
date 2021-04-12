@@ -10,8 +10,8 @@ const mainGamePageStyles = StyleSheet.create({
         height: 100,
         backgroundColor: '#00c6fb',
         borderRadius: 10,
-        marginTop: 10,
-        marginLeft: 10,
+        marginTop: 50,
+        marginLeft: 20,
     },
 
     // main game formular box style
@@ -20,7 +20,7 @@ const mainGamePageStyles = StyleSheet.create({
         height: 90,
         alignSelf: 'center',
         backgroundColor: '#4fb576',
-        marginTop: 100,
+        marginTop: 150,
     },
 
     // main game formular box text style

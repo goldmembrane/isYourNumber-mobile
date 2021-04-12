@@ -11,7 +11,7 @@ const titlePageStyles = StyleSheet.create({
         height: 80,
         alignSelf: 'center',
         backgroundColor: '#a1c4fd',
-        marginTop: 150,
+        marginTop: 200,
     },
 
     // title box text style

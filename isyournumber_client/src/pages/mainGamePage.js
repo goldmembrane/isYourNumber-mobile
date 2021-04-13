@@ -1,6 +1,7 @@
 // main game이 이루어지는 main game page
-import React from 'react'
+import React, { useEffect } from 'react'
 import { View, Text, TouchableOpacity,StyleSheet } from 'react-native'
+import { useState } from 'react'
 
 // main game page의 style을 구성할 코드
 const mainGamePageStyles = StyleSheet.create({
@@ -90,13 +91,32 @@ const mainGamePageStyles = StyleSheet.create({
 
 // main game page의 화면을 구성할 코드
 const MainGamePage = () => {
+
+    // 랜덤으로 formular를 생성하면, 그 formular를 저장하는 state
+    const [ formular, setFormular ] = useState('')
+
+    // operator를 지정하는 state
+    const [ operator, setOperator ] = useState({
+        1: '+', 2: '-',
+    })
+
+    // 랜덤으로 formular를 생성하는 함수
+    const setRandomFormular = () => {
+        setFormular(formular + `${Math.floor(Math.random() * 99) + 1}${operator[Math.floor(Math.random() * 2) + 1]}${Math.floor(Math.random() * 99) + 1}${operator[Math.floor(Math.random() * 2) + 1]}${Math.floor(Math.random() * 99) + 1}`)
+    }
+
+    // 화면이 처음 렌더링되면 실행하기 위한 hook
+    useEffect(() => {
+        setRandomFormular()
+    },[])
+
     return (
         <>
             <View style = {mainGamePageStyles.gameTimerBox}>
 
             </View>
             <View style = {mainGamePageStyles.gameFormularBox}>
-                <Text style = {mainGamePageStyles.gameFormularBoxText}>1 + 1 =</Text>
+                <Text style = {mainGamePageStyles.gameFormularBoxText}>{formular}</Text>
             </View>
             <View style = {mainGamePageStyles.gameSelectButtonCollection}>
                 <TouchableOpacity style = {mainGamePageStyles.gameAnswerBelowButtonBox}>

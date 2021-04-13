@@ -2,7 +2,6 @@
 import React, { useEffect } from 'react'
 import { View, Text, TouchableOpacity,StyleSheet } from 'react-native'
 import { useState } from 'react'
-import { TabRouter } from '@react-navigation/routers'
 
 // main game page의 style을 구성할 코드
 const mainGamePageStyles = StyleSheet.create({

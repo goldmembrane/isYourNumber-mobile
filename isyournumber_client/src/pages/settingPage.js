@@ -60,7 +60,7 @@ const SettingPage = ({ navigation }) => {
             <View style = {settingPageStyles.randomNumberBox}>
                 <Text style = {settingPageStyles.randomNumberBoxText}>{number}</Text>
             </View>
-            <TouchableOpacity style = {settingPageStyles.gameStartButtonBox} onPress = {() => navigation.navigate('Game')}>
+            <TouchableOpacity style = {settingPageStyles.gameStartButtonBox} onPress = {() => navigation.navigate('Game', {number: number})}>
                 <Text style = {settingPageStyles.gameStartButtonBoxText}>Game Start!</Text>
             </TouchableOpacity>
         </>

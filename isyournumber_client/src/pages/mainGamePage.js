@@ -90,7 +90,7 @@ const mainGamePageStyles = StyleSheet.create({
 })
 
 // main game page의 화면을 구성할 코드
-const MainGamePage = () => {
+const MainGamePage = ({ route }) => {
 
     // 랜덤으로 formular를 생성하면, 그 formular를 저장하는 state
     const [ formular, setFormular ] = useState('')

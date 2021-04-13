@@ -103,7 +103,7 @@ const MainGamePage = ({ route }) => {
     })
 
     // 정답을 맞출 경우에 숫자가 증가하는 right state
-    const [ right, setRight ] = useState(0)
+    const [ right, setRight ] = useState(1)
 
     // 오답일 경우에 숫자가 증가하는 wrong state
     const [ wrong, setWrong ] = useState(1)
@@ -113,7 +113,7 @@ const MainGamePage = ({ route }) => {
        const randomFormular = `${Math.floor(Math.random() * 99) + 1}${operator[Math.floor(Math.random() * 2) + 1]}${Math.floor(Math.random() * 99) + 1}${operator[Math.floor(Math.random() * 2) + 1]}${Math.floor(Math.random() * 99) + 1}`
 
        if ( eval(randomFormular) > route.params.number - 5 && eval(randomFormular) < route.params.number + 5) {
-           setFormular(formular + randomFormular)
+           setFormular(randomFormular)
        }else {
            setRandomFormular()
        }
@@ -123,8 +123,10 @@ const MainGamePage = ({ route }) => {
     const belowAnswer = () => {
         if ( eval(formular) < route.params.number ) {
             setRight(right + 1)
+            console.log('right :',right)
         }else {
             setWrong(wrong + 1)
+            console.log('wrong :',wrong)
         }
     }
 
@@ -132,8 +134,10 @@ const MainGamePage = ({ route }) => {
     const sameAnswer = () => {
         if ( eval(formular) === route.params.number ) {
             setRight(right + 1)
+            console.log('right :',right)
         }else {
             setWrong(wrong + 1)
+            console.log('wrong :',wrong)
         }
     }
 
@@ -141,8 +145,10 @@ const MainGamePage = ({ route }) => {
     const amongAnswer = () => {
         if ( eval(formular) > route.params.number ) {
             setRight(right + 1)
+            console.log('right :',right)
         }else {
             setWrong(wrong + 1)
+            console.log('wrong :',wrong)
         }
     }
 
@@ -158,13 +164,13 @@ const MainGamePage = ({ route }) => {
                 <Text style = {mainGamePageStyles.gameFormularBoxText}>{formular}</Text>
             </View>
             <View style = {mainGamePageStyles.gameSelectButtonCollection}>
-                <TouchableOpacity style = {mainGamePageStyles.gameAnswerBelowButtonBox}>
+                <TouchableOpacity style = {mainGamePageStyles.gameAnswerBelowButtonBox} onPress = {() => {belowAnswer(); setRandomFormular();}}>
                     <Text style = {mainGamePageStyles.gameAnswerBelowButtonBoxText}>낮다</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style = {mainGamePageStyles.gameAnswerButtonBox}>
+                <TouchableOpacity style = {mainGamePageStyles.gameAnswerButtonBox} onPress = {() => {sameAnswer(); setRandomFormular();}}>
                     <Text style = {mainGamePageStyles.gameAnswerButtonBoxText}>맞다</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style = {mainGamePageStyles.gameAnswerAmongButtonBox}>
+                <TouchableOpacity style = {mainGamePageStyles.gameAnswerAmongButtonBox} onPress = {() => {amongAnswer(); setRandomFormular();}}>
                     <Text style = {mainGamePageStyles.gameAnswerAmongButtonBoxText}>높다</Text>
                 </TouchableOpacity>
             </View>

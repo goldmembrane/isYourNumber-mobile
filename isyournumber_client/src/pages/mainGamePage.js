@@ -15,13 +15,30 @@ const mainGamePageStyles = StyleSheet.create({
         marginLeft: 20,
     },
 
+    // main game setted number box style
+    gameSettedNumberBox: {
+        width: 100,
+        height: 60,
+        marginTop: 100,
+        alignSelf: 'center',
+        backgroundColor: '#00c6fb',
+    },
+
+    // main game setted number box text style
+
+    gameSettedNumberBoxText: {
+        fontSize: 30,
+        textAlign: 'center',
+        lineHeight: 60,
+        fontWeight: 'bold'
+    },
+
     // main game formular box style
     gameFormularBox: {
         width: 250,
         height: 90,
         alignSelf: 'center',
         backgroundColor: '#4fb576',
-        marginTop: 150,
     },
 
     // main game formular box text style
@@ -91,7 +108,7 @@ const mainGamePageStyles = StyleSheet.create({
 
 // main game page의 화면을 구성할 코드
 
-const MainGamePage = ({ route }) => {
+const MainGamePage = ({ navigation, route }) => {
 
     // 랜덤으로 formular를 생성하면, 그 formular를 저장하는 state
     const [ formular, setFormular ] = useState('')
@@ -102,7 +119,7 @@ const MainGamePage = ({ route }) => {
     })
 
     // 정답을 맞출 경우에 숫자가 증가하는 right state
-    const [ right, setRight ] = useState(1)
+    const [ right, setRight ] = useState(0)
 
     // 오답일 경우에 숫자가 증가하는 wrong state
     const [ wrong, setWrong ] = useState(1)
@@ -126,6 +143,9 @@ const MainGamePage = ({ route }) => {
         }else {
             setWrong(wrong + 1)
             console.log('wrong :',wrong)
+            if ( wrong > 2 ) {
+                navigation.navigate('End', {score: right})
+            }
         }
     }
 
@@ -137,6 +157,9 @@ const MainGamePage = ({ route }) => {
         }else {
             setWrong(wrong + 1)
             console.log('wrong :',wrong)
+            if ( wrong > 2 ) {
+                navigation.navigate('End',{score: right})
+            }
         }
     }
 
@@ -148,6 +171,9 @@ const MainGamePage = ({ route }) => {
         }else {
             setWrong(wrong + 1)
             console.log('wrong :',wrong)
+            if ( wrong > 2 ) {
+                navigation.navigate('End', {score: right})
+            }
         }
     }
 
@@ -159,6 +185,9 @@ const MainGamePage = ({ route }) => {
     return (
         <>
             <View style = {mainGamePageStyles.gameTimerBox}></View>
+            <View style = {mainGamePageStyles.gameSettedNumberBox}>
+                <Text style = {mainGamePageStyles.gameSettedNumberBoxText}>{route.params.number}</Text>
+            </View>
             <View style = {mainGamePageStyles.gameFormularBox}>
                 <Text style = {mainGamePageStyles.gameFormularBoxText}>{formular}</Text>
             </View>

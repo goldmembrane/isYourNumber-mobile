@@ -119,7 +119,7 @@ const MainGamePage = ({ navigation, route }) => {
     })
 
     // 정답을 맞출 경우에 숫자가 증가하는 right state
-    const [ right, setRight ] = useState(1)
+    const [ right, setRight ] = useState(0)
 
     // 오답일 경우에 숫자가 증가하는 wrong state
     const [ wrong, setWrong ] = useState(1)
@@ -144,7 +144,7 @@ const MainGamePage = ({ navigation, route }) => {
             setWrong(wrong + 1)
             console.log('wrong :',wrong)
             if ( wrong > 2 ) {
-                navigation.navigate('End')
+                navigation.navigate('End', {score: right})
             }
         }
     }
@@ -158,7 +158,7 @@ const MainGamePage = ({ navigation, route }) => {
             setWrong(wrong + 1)
             console.log('wrong :',wrong)
             if ( wrong > 2 ) {
-                navigation.navigate('End')
+                navigation.navigate('End',{score: right})
             }
         }
     }
@@ -172,7 +172,7 @@ const MainGamePage = ({ navigation, route }) => {
             setWrong(wrong + 1)
             console.log('wrong :',wrong)
             if ( wrong > 2 ) {
-                navigation.navigate('End')
+                navigation.navigate('End', {score: right})
             }
         }
     }

@@ -85,7 +85,7 @@ const gameOverPageStyles = StyleSheet.create({
 })
 
 // game over page의 화면을 구성할 코드
-const GameoverPage = () => {
+const GameoverPage = ({ navigation, route }) => {
 
     // 버튼을 활성, 비활성을 결정하는 state
     const [ shown, setShown ] = useState(false)
@@ -101,12 +101,12 @@ const GameoverPage = () => {
                 <Text style = {gameOverPageStyles.gameOverBoxText}>Game Over!</Text>
             </View>
             <View style = {gameOverPageStyles.gameScoreBox}>
-                <Text style = {gameOverPageStyles.gameScoreBoxText}>Score : </Text>
+                <Text style = {gameOverPageStyles.gameScoreBoxText}>Score : {route.params.score}</Text>
             </View>
             <TouchableOpacity style = {!shown ? gameOverPageStyles.saveScoreButtonBox : gameOverPageStyles.noShownSaveScoreButtonBox} onPress = {changeToShown}>
                 <Text style = {gameOverPageStyles.saveScoreButtonBoxText}>Save Score</Text>
             </TouchableOpacity>
-            <TouchableOpacity style = {shown ? gameOverPageStyles.returnToHomeButtonBox : gameOverPageStyles.noShownReturnToHomeButtonBox}>
+            <TouchableOpacity style = {shown ? gameOverPageStyles.returnToHomeButtonBox : gameOverPageStyles.noShownReturnToHomeButtonBox} onPress = {() => navigation.navigate('Title')}>
                 <Text style = {gameOverPageStyles.returnToHomeButtonBoxText}>Return to Home</Text>
             </TouchableOpacity>
         </>

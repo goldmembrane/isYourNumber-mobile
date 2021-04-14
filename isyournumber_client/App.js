@@ -3,7 +3,7 @@
 import * as React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
-import { MainGamePage, TitlePage, SettingPage } from './src/pages'
+import { MainGamePage, TitlePage, SettingPage, GameoverPage } from './src/pages'
 
 const Stack = createStackNavigator()
 
@@ -14,6 +14,7 @@ const App = () => {
         <Stack.Screen name = 'Title' component = {TitlePage} options = {{headerShown : false}}/>
         <Stack.Screen name = 'Setting' component = {SettingPage} options = {{headerShown : false}}/>
         <Stack.Screen name = 'Game' component = {MainGamePage} options = {{headerShown : false}}/>
+        <Stack.Screen name = 'End' component = {GameoverPage} options = {{headerShown : false}} />
       </Stack.Navigator>
     </NavigationContainer>
   )

@@ -108,7 +108,7 @@ const mainGamePageStyles = StyleSheet.create({
 
 // main game page의 화면을 구성할 코드
 
-const MainGamePage = ({ route }) => {
+const MainGamePage = ({ navigation, route }) => {
 
     // 랜덤으로 formular를 생성하면, 그 formular를 저장하는 state
     const [ formular, setFormular ] = useState('')
@@ -143,6 +143,9 @@ const MainGamePage = ({ route }) => {
         }else {
             setWrong(wrong + 1)
             console.log('wrong :',wrong)
+            if ( wrong > 2 ) {
+                navigation.navigate('End')
+            }
         }
     }
 
@@ -154,6 +157,9 @@ const MainGamePage = ({ route }) => {
         }else {
             setWrong(wrong + 1)
             console.log('wrong :',wrong)
+            if ( wrong > 2 ) {
+                navigation.navigate('End')
+            }
         }
     }
 
@@ -165,6 +171,9 @@ const MainGamePage = ({ route }) => {
         }else {
             setWrong(wrong + 1)
             console.log('wrong :',wrong)
+            if ( wrong > 2 ) {
+                navigation.navigate('End')
+            }
         }
     }
 

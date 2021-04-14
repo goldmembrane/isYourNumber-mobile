@@ -2,6 +2,7 @@
 
 import React from 'react'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import { useState } from 'react'
 
 // game over page의 style을 구성할 코드
 const gameOverPageStyles = StyleSheet.create({
@@ -17,7 +18,7 @@ const gameOverPageStyles = StyleSheet.create({
 
     // game over를 표시할 box text style
     gameOverBoxText: {
-        fontSize: 32,
+        fontSize: 36,
         textAlign: 'center',
         fontWeight: 'bold',
         lineHeight: 90,
@@ -54,6 +55,12 @@ const gameOverPageStyles = StyleSheet.create({
         lineHeight: 60,
     },
 
+    // save score button box style if shown state is false
+    noShownSaveScoreButtonBox: {
+        width: 0,
+        height: 0,
+    },
+
     // return to home button box style
     returnToHomeButtonBox: {
         width: 175,
@@ -68,11 +75,26 @@ const gameOverPageStyles = StyleSheet.create({
         fontSize: 24,
         textAlign: 'center',
         lineHeight: 60,
+    },
+
+    // return to home button box style if shown is false
+    noShownReturnToHomeButtonBox: {
+        width: 0,
+        height: 0,
     }
 })
 
 // game over page의 화면을 구성할 코드
 const GameoverPage = () => {
+
+    // 버튼을 활성, 비활성을 결정하는 state
+    const [ shown, setShown ] = useState(false)
+
+    // 버튼을 활성한다고 state를 변경하는 함수
+    const changeToShown = () => {
+        setShown(true)
+    }
+
     return(
         <>
             <View style = {gameOverPageStyles.gameOverBox}>
@@ -81,10 +103,10 @@ const GameoverPage = () => {
             <View style = {gameOverPageStyles.gameScoreBox}>
                 <Text style = {gameOverPageStyles.gameScoreBoxText}>Score : </Text>
             </View>
-            <TouchableOpacity style = {gameOverPageStyles.saveScoreButtonBox}>
+            <TouchableOpacity style = {!shown ? gameOverPageStyles.saveScoreButtonBox : gameOverPageStyles.noShownSaveScoreButtonBox} onPress = {changeToShown}>
                 <Text style = {gameOverPageStyles.saveScoreButtonBoxText}>Save Score</Text>
             </TouchableOpacity>
-            <TouchableOpacity style = {gameOverPageStyles.returnToHomeButtonBox}>
+            <TouchableOpacity style = {shown ? gameOverPageStyles.returnToHomeButtonBox : gameOverPageStyles.noShownReturnToHomeButtonBox}>
                 <Text style = {gameOverPageStyles.returnToHomeButtonBoxText}>Return to Home</Text>
             </TouchableOpacity>
         </>

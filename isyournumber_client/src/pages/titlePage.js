@@ -68,7 +68,7 @@ const TitlePage = ({navigation}) => {
                 <Text style = {titlePageStyles.startGameButtonBoxText}>START</Text>
             </TouchableOpacity>
             {/* show game ranks button box */}
-            <TouchableOpacity style = {titlePageStyles.rankButtonBox}>
+            <TouchableOpacity style = {titlePageStyles.rankButtonBox} onPress = {() => navigation.navigate('Rank')}>
                 <Text style = {titlePageStyles.rankButtonBoxText}>Ranks</Text>
             </TouchableOpacity>
         </>

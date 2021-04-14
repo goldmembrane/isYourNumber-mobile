@@ -15,13 +15,30 @@ const mainGamePageStyles = StyleSheet.create({
         marginLeft: 20,
     },
 
+    // main game setted number box style
+    gameSettedNumberBox: {
+        width: 100,
+        height: 60,
+        marginTop: 100,
+        alignSelf: 'center',
+        backgroundColor: '#00c6fb',
+    },
+
+    // main game setted number box text style
+
+    gameSettedNumberBoxText: {
+        fontSize: 30,
+        textAlign: 'center',
+        lineHeight: 60,
+        fontWeight: 'bold'
+    },
+
     // main game formular box style
     gameFormularBox: {
         width: 250,
         height: 90,
         alignSelf: 'center',
         backgroundColor: '#4fb576',
-        marginTop: 150,
     },
 
     // main game formular box text style
@@ -159,6 +176,9 @@ const MainGamePage = ({ route }) => {
     return (
         <>
             <View style = {mainGamePageStyles.gameTimerBox}></View>
+            <View style = {mainGamePageStyles.gameSettedNumberBox}>
+                <Text style = {mainGamePageStyles.gameSettedNumberBoxText}>{route.params.number}</Text>
+            </View>
             <View style = {mainGamePageStyles.gameFormularBox}>
                 <Text style = {mainGamePageStyles.gameFormularBoxText}>{formular}</Text>
             </View>

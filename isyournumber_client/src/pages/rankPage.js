@@ -27,9 +27,15 @@ const RankPage = () => {
     // rank를 받기 위한 함수
     const getRanks = async () => {
         await axios.get('http://localhost:7500/rank').then(response => {
-            console.log(response.data.data)
+            console.log(response.data)
+            setData(data.concat(response.data))
         })
     }
+
+    // 받아온 ranks 수만큼 화면에 표시하는 map 함수
+    const manyRankings = data.map((rank, i) => (
+        <Rankings key = {i} rank = {rank}/>
+    ))
 
     useEffect(() => {
         getRanks()
@@ -37,7 +43,7 @@ const RankPage = () => {
     return (
         <>
             <View style = {rankPageStyles.rankPageBox}>
-                <Rankings />
+                {manyRankings}
             </View>
         </>
     )

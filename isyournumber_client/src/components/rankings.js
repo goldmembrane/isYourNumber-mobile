@@ -12,7 +12,7 @@ const rankingsStyles = StyleSheet.create({
         height: 100,
         backgroundColor: '#2b5876',
         alignSelf: 'center',
-        marginTop: 30,
+        marginTop: 16,
     },
 })
 

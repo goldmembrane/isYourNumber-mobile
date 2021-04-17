@@ -2,6 +2,8 @@
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
 import Rankings from '../components/rankings'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 
 // rank page의 style을 구성할 코드
 const rankPageStyles = StyleSheet.create({
@@ -18,6 +20,20 @@ const rankPageStyles = StyleSheet.create({
 
 // rank page의 화면을 구성할 코드
 const RankPage = () => {
+
+    // rank를 받아오기 위한 state
+    const [data, setData] = useState([])
+
+    // rank를 받기 위한 함수
+    const getRanks = async () => {
+        await axios.get('http://localhost:7500/rank').then(response => {
+            console.log(response.data.data)
+        })
+    }
+
+    useEffect(() => {
+        getRanks()
+    }, [])
     return (
         <>
             <View style = {rankPageStyles.rankPageBox}>

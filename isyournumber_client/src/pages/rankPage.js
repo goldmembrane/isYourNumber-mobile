@@ -1,10 +1,27 @@
 // 자신이 그동안 했던 score들을 높은 점수 순위대로 화면에 표시하는 rank page
 import React from 'react'
-import { View, StyleSheet } from 'react-native'
+import { View, TouchableOpacity, Text, StyleSheet } from 'react-native'
 import Rankings from '../components/rankings'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 
 // rank page의 style을 구성할 코드
 const rankPageStyles = StyleSheet.create({
+
+    goBackBox: {
+        width: 100,
+        height: 50,
+        backgroundColor: '#0fd850',
+        marginTop: 50,
+        marginLeft: 10,
+    },
+
+    goBackBoxText: {
+        fontSize: 26,
+        lineHeight: 50,
+        fontWeight: 'bold',
+        textAlign: 'center',
+    },
 
     // rank page box style
     rankPageBox: {
@@ -17,11 +34,39 @@ const rankPageStyles = StyleSheet.create({
 })
 
 // rank page의 화면을 구성할 코드
-const RankPage = () => {
+const RankPage = ({ navigation }) => {
+
+    // rank를 받아오기 위한 state
+    const [data, setData] = useState([])
+
+    // rank를 받기 위한 함수
+    const getRanks = async () => {
+        await axios.get('http://localhost:7500/rank').then(response => {
+            console.log(response.data)
+            setData(data.concat(response.data))
+        })
+    }
+
+    // 뒤로 가기 버튼을 누르면 받은 ranks를 초기화하는 함수
+    const resetRanks = () => {
+        setData([])
+    }
+
+    // 받아온 ranks 수만큼 화면에 표시하는 map 함수
+    const manyRankings = data.map((rank, i) => (
+        <Rankings key = {i} rank = {rank}/>
+    ))
+
+    useEffect(() => {
+        getRanks()
+    }, [])
     return (
-        <>
+        <> 
+            <TouchableOpacity style = {rankPageStyles.goBackBox} onPress = {() => {resetRanks(); navigation.navigate('Title');}}>
+                <Text style = {rankPageStyles.goBackBoxText}>뒤로가기</Text>
+            </TouchableOpacity>
             <View style = {rankPageStyles.rankPageBox}>
-                <Rankings />
+                {manyRankings}
             </View>
         </>
     )

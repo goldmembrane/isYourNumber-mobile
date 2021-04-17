@@ -1,12 +1,27 @@
 // 자신이 그동안 했던 score들을 높은 점수 순위대로 화면에 표시하는 rank page
 import React from 'react'
-import { View, StyleSheet } from 'react-native'
+import { View, TouchableOpacity, Text, StyleSheet } from 'react-native'
 import Rankings from '../components/rankings'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
 // rank page의 style을 구성할 코드
 const rankPageStyles = StyleSheet.create({
+
+    goBackBox: {
+        width: 100,
+        height: 50,
+        backgroundColor: '#0fd850',
+        marginTop: 50,
+        marginLeft: 10,
+    },
+
+    goBackBoxText: {
+        fontSize: 26,
+        lineHeight: 50,
+        fontWeight: 'bold',
+        textAlign: 'center',
+    },
 
     // rank page box style
     rankPageBox: {
@@ -41,7 +56,10 @@ const RankPage = () => {
         getRanks()
     }, [])
     return (
-        <>
+        <> 
+            <TouchableOpacity style = {rankPageStyles.goBackBox}>
+                <Text style = {rankPageStyles.goBackBoxText}>뒤로가기</Text>
+            </TouchableOpacity>
             <View style = {rankPageStyles.rankPageBox}>
                 {manyRankings}
             </View>

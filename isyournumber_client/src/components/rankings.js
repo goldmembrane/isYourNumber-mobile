@@ -1,7 +1,7 @@
 // 각 ranking들을 나타낼 rankings component
 
 import React from 'react'
-import { View,  StyleSheet } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
 
 // ranking component의 style을 구성할 코드
 const rankingsStyles = StyleSheet.create({
@@ -14,14 +14,22 @@ const rankingsStyles = StyleSheet.create({
         alignSelf: 'center',
         marginTop: 16,
     },
+
+    // rankings box text style
+    rankingsBoxText: {
+        fontSize: 45,
+        lineHeight: 100,
+        textAlign: 'center',
+        fontWeight: 'bold',
+    }
 })
 
 // ranking component의 화면을 구성할 코드
-const Rankings = () => {
+const Rankings = (props) => {
     return(
         <>
             <View style = {rankingsStyles.rankingsBox}>
-
+                <Text style = {rankingsStyles.rankingsBoxText}>{props.rank.score}</Text>
             </View>
         </>
     )

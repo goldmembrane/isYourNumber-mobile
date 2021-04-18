@@ -95,6 +95,20 @@ const GameoverPage = ({ navigation, route }) => {
         setShown(true)
     }
 
+    // 버튼을 누르면 현재 score를 server에 저장하는 함수
+    const saveScore = () => {
+        fetch('http://localhost:7500/rank', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                score: route.params.score,
+            }),
+        })
+        .then((response) => console.log(response))
+    }
+
     return(
         <>
             <View style = {gameOverPageStyles.gameOverBox}>
@@ -103,7 +117,7 @@ const GameoverPage = ({ navigation, route }) => {
             <View style = {gameOverPageStyles.gameScoreBox}>
                 <Text style = {gameOverPageStyles.gameScoreBoxText}>Score : {route.params.score}</Text>
             </View>
-            <TouchableOpacity style = {!shown ? gameOverPageStyles.saveScoreButtonBox : gameOverPageStyles.noShownSaveScoreButtonBox} onPress = {changeToShown}>
+            <TouchableOpacity style = {!shown ? gameOverPageStyles.saveScoreButtonBox : gameOverPageStyles.noShownSaveScoreButtonBox} onPress = {() => {saveScore(); changeToShown();}}>
                 <Text style = {gameOverPageStyles.saveScoreButtonBoxText}>Save Score</Text>
             </TouchableOpacity>
             <TouchableOpacity style = {shown ? gameOverPageStyles.returnToHomeButtonBox : gameOverPageStyles.noShownReturnToHomeButtonBox} onPress = {() => navigation.navigate('Title')}>

@@ -43,7 +43,7 @@ const RankPage = ({ navigation }) => {
     const getRanks = async () => {
         await axios.get('http://localhost:7500/rank').then(response => {
             console.log(response.data)
-            setData(data.concat(response.data))
+            setData(response.data)
         })
     }
 

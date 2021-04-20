@@ -2,6 +2,7 @@
 import React, { useEffect } from 'react'
 import { View, Text, TouchableOpacity,StyleSheet } from 'react-native'
 import { useState } from 'react'
+import CountDown from 'react-native-countdown-component'
 
 // main game page의 style을 구성할 코드
 const mainGamePageStyles = StyleSheet.create({
@@ -184,7 +185,16 @@ const MainGamePage = ({ navigation, route }) => {
 
     return (
         <>
-            <View style = {mainGamePageStyles.gameTimerBox}></View>
+            <View style = {mainGamePageStyles.gameTimerBox}>
+                <CountDown 
+                until = {58}
+                onFinish = {() => navigation.navigate('End', {score: right})}
+                size = {38}
+                timeToShow = {['S']}
+                timeLabels = {{s: null}}
+                digitStyle = {{backgroundColor: '#00c6fb'}}
+                />
+            </View>
             <View style = {mainGamePageStyles.gameSettedNumberBox}>
                 <Text style = {mainGamePageStyles.gameSettedNumberBoxText}>{route.params.number}</Text>
             </View>

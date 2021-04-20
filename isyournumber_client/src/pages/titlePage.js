@@ -77,7 +77,7 @@ const TitlePage = ({navigation}) => {
         opacity: 1,
         from: {opacity: 0},
         delay: 1000,
-        config: {duration: 2000},
+        config: {duration: 1000},
     })
 
     // rank button에 animation을 부여하는 코드
@@ -85,7 +85,7 @@ const TitlePage = ({navigation}) => {
         opacity: 1,
         from: {opacity: 0},
         delay: 2000,
-        config: {duration: 2000}
+        config: {duration: 1000}
     })
 
     return (

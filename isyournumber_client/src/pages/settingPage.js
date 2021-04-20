@@ -23,6 +23,12 @@ const settingPageStyles = StyleSheet.create({
         fontWeight: 'bold',
     },
 
+    // (setting version) invisible game start button box style
+    invisibleGameStartButtonBox: {
+        width: 0,
+        height: 0,
+    },
+
     // (setting version) game start button box style
     gameStartButtonBox: {
         width: 200,
@@ -44,7 +50,7 @@ const settingPageStyles = StyleSheet.create({
 const SettingPage = ({ navigation }) => {
 
     // 랜덤으로 숫자를 지정하면 그 숫자를 저장하는 state
-    const [ number, setNumber ] = useState(0)
+    const [ number, setNumber ] = useState(null)
 
     // 랜덤으로 숫자를 지정하는 함수
     const setRandomNumber = () => {
@@ -53,15 +59,16 @@ const SettingPage = ({ navigation }) => {
 
     // 화면이 처음 렌더링되면 setRandomNumber를 실행시키는 hooks
     useEffect(() => {
-        setRandomNumber()
+        setTimeout(() => {
+            setRandomNumber()
+        }, 2000)
     }, [])
     return(
         <>
             <View style = {settingPageStyles.randomNumberBox}>
                 <Text style = {settingPageStyles.randomNumberBoxText}>{number}</Text>
             </View>
-            <TouchableOpacity style = {settingPageStyles.gameStartButtonBox} onPress = {() => navigation.navigate('Game', {number: number})}>
-
+            <TouchableOpacity style = {!number ? settingPageStyles.invisibleGameStartButtonBox : settingPageStyles.gameStartButtonBox} onPress = {() => navigation.navigate('Game', {number: number})}>
                 <Text style = {settingPageStyles.gameStartButtonBoxText}>Game Start!</Text>
             </TouchableOpacity>
         </>

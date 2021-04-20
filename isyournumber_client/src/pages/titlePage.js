@@ -62,14 +62,30 @@ const titlePageStyles = StyleSheet.create({
 // title page의 화면을 구성할 코드
 const TitlePage = ({navigation}) => {
 
-    // title box에 animation을 연결하는 코드
+    // title에 animation을 연결하는 코드
     const AnimatedView = animated(View)
 
-    // title box에 animation을 부여하는 코드
+    // title에 animation을 부여하는 코드
     const titleAnimate = useSpring({
         opacity: 1,
         from: {opacity: 0},
+        config: {duration: 2000},
+    })
+
+    // start button에 animation을 부여하는 코드
+    const startButtonAnimate = useSpring({
+        opacity: 1,
+        from: {opacity: 0},
+        delay: 1000,
         config: {duration: 1000},
+    })
+
+    // rank button에 animation을 부여하는 코드
+    const rankButtonAnimate = useSpring({
+        opacity: 1,
+        from: {opacity: 0},
+        delay: 2000,
+        config: {duration: 1000}
     })
 
     return (
@@ -83,13 +99,17 @@ const TitlePage = ({navigation}) => {
                 </View>
             </AnimatedView>
             {/* game start button box */}
-            <TouchableOpacity style = {titlePageStyles.startGameButtonBox} onPress = {() => navigation.navigate('Setting')}>
-                <Text style = {titlePageStyles.startGameButtonBoxText}>START</Text>
-            </TouchableOpacity>
+            <AnimatedView style = {startButtonAnimate}>
+                <TouchableOpacity style = {titlePageStyles.startGameButtonBox} onPress = {() => navigation.navigate('Setting')}>
+                    <Text style = {titlePageStyles.startGameButtonBoxText}>START</Text>
+                </TouchableOpacity>
+            </AnimatedView>
             {/* show game ranks button box */}
-            <TouchableOpacity style = {titlePageStyles.rankButtonBox} onPress = {() => navigation.navigate('Rank')}>
-                <Text style = {titlePageStyles.rankButtonBoxText}>Ranks</Text>
-            </TouchableOpacity>
+            <AnimatedView style = {rankButtonAnimate}>
+                <TouchableOpacity style = {titlePageStyles.rankButtonBox} onPress = {() => navigation.navigate('Rank')}>
+                    <Text style = {titlePageStyles.rankButtonBoxText}>Ranks</Text>
+                </TouchableOpacity>
+            </AnimatedView>
         </>
     )
 }

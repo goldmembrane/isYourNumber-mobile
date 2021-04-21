@@ -2,6 +2,7 @@
 import React, { useEffect } from 'react'
 import { View, Text, TouchableOpacity,StyleSheet } from 'react-native'
 import { useState } from 'react'
+import AnimateNumber from 'react-native-animate-number'
 
 // setting page의 style을 구성할 코드
 const settingPageStyles = StyleSheet.create({
@@ -54,19 +55,19 @@ const SettingPage = ({ navigation }) => {
 
     // 랜덤으로 숫자를 지정하는 함수
     const setRandomNumber = () => {
-        setNumber(number + Math.floor(Math.random() * 90 ) + 10)
+        setNumber(Math.floor(Math.random() * 90 ) + 10)
     }
 
     // 화면이 처음 렌더링되면 setRandomNumber를 실행시키는 hooks
     useEffect(() => {
-        setTimeout(() => {
-            setRandomNumber()
-        }, 2000)
+        setRandomNumber()
     }, [])
     return(
         <>
             <View style = {settingPageStyles.randomNumberBox}>
-                <Text style = {settingPageStyles.randomNumberBoxText}>{number}</Text>
+                <Text style = {settingPageStyles.randomNumberBoxText}>
+                    <AnimateNumber value={number} countBy = {1} timing = 'easeOut'/>
+                </Text>
             </View>
             <TouchableOpacity style = {!number ? settingPageStyles.invisibleGameStartButtonBox : settingPageStyles.gameStartButtonBox} onPress = {() => navigation.navigate('Game', {number: number})}>
                 <Text style = {settingPageStyles.gameStartButtonBoxText}>Game Start!</Text>

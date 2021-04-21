@@ -6,6 +6,7 @@ import CountDown from 'react-native-countdown-component'
 
 // main game page의 style을 구성할 코드
 const mainGamePageStyles = StyleSheet.create({
+    
     // main game time box style
     gameTimerBox: {
         width: 100,

@@ -5,6 +5,10 @@ import ReactDOM from 'react-dom'
 import { useSpring, animated } from 'react-spring'
 
 
+// title에 animation을 연결하는 코드
+const AnimatedView = animated(View)
+
+
 // title page의 style을 구성할 코드
 const titlePageStyles = StyleSheet.create({
 
@@ -61,9 +65,6 @@ const titlePageStyles = StyleSheet.create({
 
 // title page의 화면을 구성할 코드
 const TitlePage = ({navigation}) => {
-
-    // title에 animation을 연결하는 코드
-    const AnimatedView = animated(View)
 
     // title에 animation을 부여하는 코드
     const titleAnimate = useSpring({

@@ -1,8 +1,8 @@
 // 랜덤으로 숫자를 지정하고, 숫자가 지정되면 게임 시작 버튼이 활성화되는 페이지
-import React, { useEffect } from 'react'
+import React from 'react'
 import { View, Text, TouchableOpacity,StyleSheet } from 'react-native'
 import { useState } from 'react'
-import AnimateNumber from 'react-native-animate-number'
+import AnimatedNumbers from 'react-native-animated-numbers'
 
 // setting page의 style을 구성할 코드
 const settingPageStyles = StyleSheet.create({
@@ -14,6 +14,7 @@ const settingPageStyles = StyleSheet.create({
         alignSelf: 'center',
         backgroundColor: '#38f9d7',
         marginTop: 200,
+        alignItems: 'center',
     },
 
     // random number box text style
@@ -22,6 +23,22 @@ const settingPageStyles = StyleSheet.create({
         textAlign: 'center',
         lineHeight: 80,
         fontWeight: 'bold',
+    },
+
+    // setting number button box style
+    setNumberBox:{
+        width: 200,
+        height: 60,
+        alignSelf: 'center',
+        backgroundColor: '#fa71cd',
+        marginTop: 250,
+    },
+
+    // setting number button box text style
+    setNumberBoxText:{
+        fontSize: 20,
+        textAlign: 'center',
+        lineHeight: 60,
     },
 
     // (setting version) invisible game start button box style
@@ -51,24 +68,23 @@ const settingPageStyles = StyleSheet.create({
 const SettingPage = ({ navigation }) => {
 
     // 랜덤으로 숫자를 지정하면 그 숫자를 저장하는 state
-    const [ number, setNumber ] = useState(null)
+    const [ number, setNumber ] = useState(0)
 
     // 랜덤으로 숫자를 지정하는 함수
     const setRandomNumber = () => {
-        setNumber(Math.floor(Math.random() * 90 ) + 10)
+        setNumber(number + Math.floor(Math.random() * 90) + 10)
     }
 
-    // 화면이 처음 렌더링되면 setRandomNumber를 실행시키는 hooks
-    useEffect(() => {
-        setRandomNumber()
-    }, [])
     return(
         <>
             <View style = {settingPageStyles.randomNumberBox}>
-                <Text style = {settingPageStyles.randomNumberBoxText}>
-                    <AnimateNumber value={number} countBy = {1} timing = 'easeOut'/>
-                </Text>
+                    <AnimatedNumbers 
+                    animateToNumber = {number}
+                    fontStyle = {{fontSize: 30, fontWeight: 'bold', lineHeight: 80}}/>
             </View>
+            <TouchableOpacity style = {!number ? settingPageStyles.setNumberBox : settingPageStyles.invisibleGameStartButtonBox} onPress = {setRandomNumber}>
+                <Text style = {settingPageStyles.setNumberBoxText}>Set Number!</Text>
+            </TouchableOpacity>
             <TouchableOpacity style = {!number ? settingPageStyles.invisibleGameStartButtonBox : settingPageStyles.gameStartButtonBox} onPress = {() => navigation.navigate('Game', {number: number})}>
                 <Text style = {settingPageStyles.gameStartButtonBoxText}>Game Start!</Text>
             </TouchableOpacity>

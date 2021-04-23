@@ -15,6 +15,7 @@ const settingPageStyles = StyleSheet.create({
         backgroundColor: '#38f9d7',
         marginTop: 200,
         alignItems: 'center',
+        borderRadius: 20,
     },
 
     // random number box text style
@@ -32,6 +33,7 @@ const settingPageStyles = StyleSheet.create({
         alignSelf: 'center',
         backgroundColor: '#fa71cd',
         marginTop: 250,
+        borderRadius: 10,
     },
 
     // setting number button box text style
@@ -52,8 +54,9 @@ const settingPageStyles = StyleSheet.create({
         width: 200,
         height: 60,
         alignSelf: 'center',
-        backgroundColor: '#fa71cd',
+        backgroundColor: '#209cff',
         marginTop: 250,
+        borderRadius: 10,
     },
 
     // (setting version) game start button box text style
@@ -61,6 +64,8 @@ const settingPageStyles = StyleSheet.create({
         fontSize: 20,
         textAlign: 'center',
         lineHeight: 60,
+        color: '#ffffff',
+        fontWeight: 'bold',
     }
 })
 

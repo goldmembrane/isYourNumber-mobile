@@ -13,7 +13,8 @@ const gameOverPageStyles = StyleSheet.create({
         height: 90,
         marginTop: 250,
         backgroundColor: '#74ebd5',
-        alignSelf: 'center'
+        alignSelf: 'center',
+        borderRadius: 15,
     },
 
     // game over를 표시할 box text style
@@ -46,6 +47,7 @@ const gameOverPageStyles = StyleSheet.create({
         marginTop: 50,
         alignSelf: 'center',
         backgroundColor: '#b1f4cf',
+        borderRadius: 10,
     },
 
     // save score button box text style
@@ -68,6 +70,7 @@ const gameOverPageStyles = StyleSheet.create({
         marginTop: 50,
         alignSelf: 'center',
         backgroundColor: '#fa709a',
+        borderRadius: 10,
     },
 
     // return to home button box text style

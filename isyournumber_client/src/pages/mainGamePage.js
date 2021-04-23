@@ -41,13 +41,17 @@ const mainGamePageStyles = StyleSheet.create({
         height: 90,
         alignSelf: 'center',
         backgroundColor: '#4fb576',
+        borderRadius: 15,
+        borderStyle: 'solid',
+        borderWidth: 10,
+        borderColor: '#e6b980',
     },
 
     // main game formular box text style
     gameFormularBoxText: {
         fontSize: 34,
         textAlign: 'center',
-        lineHeight: 90,
+        lineHeight: 70,
         fontWeight: 'bold'
     },
 

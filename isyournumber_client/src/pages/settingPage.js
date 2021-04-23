@@ -1,6 +1,6 @@
 // 랜덤으로 숫자를 지정하고, 숫자가 지정되면 게임 시작 버튼이 활성화되는 페이지
 import React from 'react'
-import { View, Text, TouchableOpacity,StyleSheet } from 'react-native'
+import { View, Text, TouchableOpacity,StyleSheet, Easing } from 'react-native'
 import { useState } from 'react'
 import AnimatedNumbers from 'react-native-animated-numbers'
 
@@ -70,9 +70,17 @@ const SettingPage = ({ navigation }) => {
     // 랜덤으로 숫자를 지정하면 그 숫자를 저장하는 state
     const [ number, setNumber ] = useState(0)
 
+    // setting number button을 클릭하면 바뀌는 state
+    const [ shown, setShown ] = useState(true)
+
     // 랜덤으로 숫자를 지정하는 함수
     const setRandomNumber = () => {
         setNumber(number + Math.floor(Math.random() * 90) + 10)
+    }
+
+    // setting number button을 클릭하면 shown state를 false로 바꾸는 함수
+    const changeToUnShown = () => {
+        setShown(false)
     }
 
     return(
@@ -80,9 +88,10 @@ const SettingPage = ({ navigation }) => {
             <View style = {settingPageStyles.randomNumberBox}>
                     <AnimatedNumbers 
                     animateToNumber = {number}
+                    animationDuration = {4000}
                     fontStyle = {{fontSize: 30, fontWeight: 'bold', lineHeight: 80}}/>
             </View>
-            <TouchableOpacity style = {!number ? settingPageStyles.setNumberBox : settingPageStyles.invisibleGameStartButtonBox} onPress = {setRandomNumber}>
+            <TouchableOpacity style = {shown ? settingPageStyles.setNumberBox : settingPageStyles.invisibleGameStartButtonBox} onPress = {() => {setRandomNumber(); changeToUnShown();}}>
                 <Text style = {settingPageStyles.setNumberBoxText}>Set Number!</Text>
             </TouchableOpacity>
             <TouchableOpacity style = {!number ? settingPageStyles.invisibleGameStartButtonBox : settingPageStyles.gameStartButtonBox} onPress = {() => navigation.navigate('Game', {number: number})}>

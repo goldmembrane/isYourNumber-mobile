@@ -3,6 +3,8 @@ import React, { useEffect } from 'react'
 import { View, Text, TouchableOpacity,StyleSheet } from 'react-native'
 import { useState } from 'react'
 import CountDown from 'react-native-countdown-component'
+import Good from '../components/good'
+
 
 // main game page의 style을 구성할 코드
 const mainGamePageStyles = StyleSheet.create({
@@ -206,6 +208,7 @@ const MainGamePage = ({ navigation, route }) => {
             <View style = {mainGamePageStyles.gameFormularBox}>
                 <Text style = {mainGamePageStyles.gameFormularBoxText}>{formular}</Text>
             </View>
+
             <View style = {mainGamePageStyles.gameSelectButtonCollection}>
                 <TouchableOpacity style = {mainGamePageStyles.gameAnswerBelowButtonBox} onPress = {() => {belowAnswer(); setRandomFormular();}}>
                     <Text style = {mainGamePageStyles.gameAnswerBelowButtonBoxText}>낮다</Text>

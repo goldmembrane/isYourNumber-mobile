@@ -1,7 +1,6 @@
 // 앱을 실행할 때, 제일 먼저 화면에 표시될 page
 import React from 'react'
 import { View, Text, TouchableOpacity ,StyleSheet } from 'react-native'
-import ReactDOM from 'react-dom'
 import { useSpring, animated } from 'react-spring'
 
 

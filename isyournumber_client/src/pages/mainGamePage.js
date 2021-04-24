@@ -3,6 +3,9 @@ import React, { useEffect } from 'react'
 import { View, Text, TouchableOpacity,StyleSheet } from 'react-native'
 import { useState } from 'react'
 import CountDown from 'react-native-countdown-component'
+import Good from '../components/good'
+import Bad from '../components/bad'
+
 
 // main game page의 style을 구성할 코드
 const mainGamePageStyles = StyleSheet.create({
@@ -130,6 +133,9 @@ const MainGamePage = ({ navigation, route }) => {
     // 오답일 경우에 숫자가 증가하는 wrong state
     const [ wrong, setWrong ] = useState(1)
 
+    // 맞췄는지 틀렸는지 판단하고 저장하는 state
+    const [ result, setResult ] = useState(null)
+
     // 랜덤으로 formular를 생성하는 함수
     const setRandomFormular = () => {
        const randomFormular = `${Math.floor(Math.random() * 99) + 1}${operator[Math.floor(Math.random() * 2) + 1]}${Math.floor(Math.random() * 99) + 1}${operator[Math.floor(Math.random() * 2) + 1]}${Math.floor(Math.random() * 99) + 1}`
@@ -145,9 +151,11 @@ const MainGamePage = ({ navigation, route }) => {
     const belowAnswer = () => {
         if ( eval(formular) < route.params.number ) {
             setRight(right + 1)
+            setResult('o')
             console.log('right :',right)
         }else {
             setWrong(wrong + 1)
+            setResult('x')
             console.log('wrong :',wrong)
             if ( wrong > 2 ) {
                 navigation.navigate('End', {score: right})
@@ -159,9 +167,11 @@ const MainGamePage = ({ navigation, route }) => {
     const sameAnswer = () => {
         if ( eval(formular) === route.params.number ) {
             setRight(right + 1)
+            setResult('o')
             console.log('right :',right)
         }else {
             setWrong(wrong + 1)
+            setResult('x')
             console.log('wrong :',wrong)
             if ( wrong > 2 ) {
                 navigation.navigate('End',{score: right})
@@ -173,9 +183,11 @@ const MainGamePage = ({ navigation, route }) => {
     const amongAnswer = () => {
         if ( eval(formular) > route.params.number ) {
             setRight(right + 1)
+            setResult('o')
             console.log('right :',right)
         }else {
             setWrong(wrong + 1)
+            setResult('x')
             console.log('wrong :',wrong)
             if ( wrong > 2 ) {
                 navigation.navigate('End', {score: right})
@@ -206,6 +218,8 @@ const MainGamePage = ({ navigation, route }) => {
             <View style = {mainGamePageStyles.gameFormularBox}>
                 <Text style = {mainGamePageStyles.gameFormularBoxText}>{formular}</Text>
             </View>
+            {result === 'o' && <Good />}
+            {result === 'x' && <Bad />}
             <View style = {mainGamePageStyles.gameSelectButtonCollection}>
                 <TouchableOpacity style = {mainGamePageStyles.gameAnswerBelowButtonBox} onPress = {() => {belowAnswer(); setRandomFormular();}}>
                     <Text style = {mainGamePageStyles.gameAnswerBelowButtonBoxText}>낮다</Text>

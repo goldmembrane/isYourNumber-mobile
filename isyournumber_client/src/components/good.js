@@ -7,12 +7,15 @@ const goodStyles = StyleSheet.create({
     goodBox: {
         width: 100,
         height: 100,
+        alignSelf: 'center',
+        marginTop: 60,
     },
 
     // display good box text style
     goodBoxText: {
-        fontSize: 30,
+        fontSize: 80,
         color: '#ff0000',
+        textAlign: 'center',
     }
 })
 

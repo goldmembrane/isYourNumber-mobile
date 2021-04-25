@@ -3,7 +3,7 @@ import React from 'react'
 import { View, TouchableOpacity, Text, StyleSheet } from 'react-native'
 import Rankings from '../components/rankings'
 import { useState, useEffect } from 'react'
-import axios from 'axios'
+import * as get from '../modules/get'
 
 // rank page의 style을 구성할 코드
 const rankPageStyles = StyleSheet.create({
@@ -41,10 +41,10 @@ const RankPage = ({ navigation }) => {
 
     // rank를 받기 위한 함수
     const getRanks = async () => {
-        await axios.get('http://localhost:7500/rank').then(response => {
-            console.log(response.data)
-            setData(response.data)
-        })
+        
+        const ranks = await get.getRanks()
+
+        setData(ranks.data)
     }
 
     // 뒤로 가기 버튼을 누르면 받은 ranks를 초기화하는 함수

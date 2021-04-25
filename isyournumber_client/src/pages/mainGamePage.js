@@ -5,6 +5,7 @@ import { useState } from 'react'
 import CountDown from 'react-native-countdown-component'
 import Good from '../components/good'
 import Bad from '../components/bad'
+import * as random from '../modules/random'
 
 
 // main game page의 style을 구성할 코드
@@ -122,11 +123,6 @@ const MainGamePage = ({ navigation, route }) => {
     // 랜덤으로 formular를 생성하면, 그 formular를 저장하는 state
     const [ formular, setFormular ] = useState('')
 
-    // operator를 지정하는 state
-    const [ operator, setOperator ] = useState({
-        1: '+', 2: '-',
-    })
-
     // 정답을 맞출 경우에 숫자가 증가하는 right state
     const [ right, setRight ] = useState(0)
 
@@ -138,7 +134,8 @@ const MainGamePage = ({ navigation, route }) => {
 
     // 랜덤으로 formular를 생성하는 함수
     const setRandomFormular = () => {
-       const randomFormular = `${Math.floor(Math.random() * 99) + 1}${operator[Math.floor(Math.random() * 2) + 1]}${Math.floor(Math.random() * 99) + 1}${operator[Math.floor(Math.random() * 2) + 1]}${Math.floor(Math.random() * 99) + 1}`
+
+        const randomFormular = `${Math.floor(Math.random() * 99) + 1}${random.operator[Math.floor(Math.random() * 2) + 1]}${Math.floor(Math.random() * 99) + 1}${random.operator[Math.floor(Math.random() * 2) + 1]}${Math.floor(Math.random() * 99) + 1}`
 
        if ( eval(randomFormular) > route.params.number - 5 && eval(randomFormular) < route.params.number + 5) {
            setFormular(randomFormular)

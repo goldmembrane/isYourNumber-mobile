@@ -1,8 +1,9 @@
 // 랜덤으로 숫자를 지정하고, 숫자가 지정되면 게임 시작 버튼이 활성화되는 페이지
 import React from 'react'
-import { View, Text, TouchableOpacity,StyleSheet, Easing } from 'react-native'
+import { View, Text, TouchableOpacity,StyleSheet } from 'react-native'
 import { useState } from 'react'
 import AnimatedNumbers from 'react-native-animated-numbers'
+import * as random from '../modules/random'
 
 // setting page의 style을 구성할 코드
 const settingPageStyles = StyleSheet.create({
@@ -73,14 +74,14 @@ const settingPageStyles = StyleSheet.create({
 const SettingPage = ({ navigation }) => {
 
     // 랜덤으로 숫자를 지정하면 그 숫자를 저장하는 state
-    const [ number, setNumber ] = useState(0)
+    const [ number, setNumber ] = useState(null)
 
     // setting number button을 클릭하면 바뀌는 state
     const [ shown, setShown ] = useState(true)
 
     // 랜덤으로 숫자를 지정하는 함수
     const setRandomNumber = () => {
-        setNumber(number + Math.floor(Math.random() * 90) + 10)
+        setNumber(random.randomNumber)
     }
 
     // setting number button을 클릭하면 shown state를 false로 바꾸는 함수

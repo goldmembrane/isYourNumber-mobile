@@ -81,7 +81,7 @@ const SettingPage = ({ navigation }) => {
 
     // 랜덤으로 숫자를 지정하는 함수
     const setRandomNumber = () => {
-        setNumber(random.setRandomNumber)
+        setNumber(random.randomNumber)
     }
 
     // setting number button을 클릭하면 shown state를 false로 바꾸는 함수

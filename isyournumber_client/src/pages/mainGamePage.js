@@ -36,10 +36,32 @@ const mainGamePageStyles = StyleSheet.create({
 
     // main game formular box text style
     gameFormularBoxText: {
-        fontSize: 34,
+        fontSize: 42,
         textAlign: 'center',
         lineHeight: 120,
         fontWeight: 'bold'
+    },
+
+    // main game board box style
+    gameBoardBox: {
+        width: 300,
+        height: 60,
+        marginBottom: 30,
+        alignSelf: 'center',
+        alignItems: 'center',
+        marginTop: 50,
+    },
+
+    // main game board score text style
+    gameScoreText: {
+        fontSize: 20,
+        textAlign: 'center',
+    },
+
+    // main game board warning text style
+    gameWarningText: {
+        fontSize: 20,
+        textAlign: 'center',
     },
 
     // main game select collection box style
@@ -55,7 +77,7 @@ const mainGamePageStyles = StyleSheet.create({
     // main game below box style
     gameAnswerBelowButtonBox: {
         flex: .325,
-        backgroundColor: '#453a94',
+        backgroundColor: '#0ba360',
         height: 180,
     },
 
@@ -71,7 +93,7 @@ const mainGamePageStyles = StyleSheet.create({
     // main game answer box style
     gameAnswerButtonBox: {
         flex: .35,
-        backgroundColor: '#e5b2ca',
+        backgroundColor: '#fee140',
     },
 
     // main game answer box text style
@@ -86,7 +108,7 @@ const mainGamePageStyles = StyleSheet.create({
     // main game among answer button box
     gameAnswerAmongButtonBox: {
         flex: .325,
-        backgroundColor: '#13547a',
+        backgroundColor: '#feada6',
     },
 
     // main game among answer button text box
@@ -110,7 +132,7 @@ const MainGamePage = ({ navigation, route }) => {
     const [ right, setRight ] = useState(0)
 
     // 오답일 경우에 숫자가 증가하는 wrong state
-    const [ wrong, setWrong ] = useState(1)
+    const [ wrong, setWrong ] = useState(0)
 
     // 맞췄는지 틀렸는지 판단하고 저장하는 state
     const [ result, setResult ] = useState(null)
@@ -139,7 +161,7 @@ const MainGamePage = ({ navigation, route }) => {
             setWrong(wrong + 1)
             console.log('wrong :',wrong)
             setResult('x')
-            if ( wrong > 2 ) {
+            if ( wrong > 1 ) {
                 navigation.navigate('End', {score: right})
             }
         }
@@ -156,7 +178,7 @@ const MainGamePage = ({ navigation, route }) => {
             setWrong(wrong + 1)
             console.log('wrong :',wrong)
             setResult('x')
-            if ( wrong > 2 ) {
+            if ( wrong > 1 ) {
                 navigation.navigate('End',{score: right})
             }
         }
@@ -173,7 +195,7 @@ const MainGamePage = ({ navigation, route }) => {
             setWrong(wrong + 1)
             console.log('wrong :',wrong)
             setResult('x')
-            if ( wrong > 2 ) {
+            if ( wrong > 1 ) {
                 navigation.navigate('End', {score: right})
             }
         }
@@ -199,8 +221,10 @@ const MainGamePage = ({ navigation, route }) => {
             <View style = {mainGamePageStyles.gameFormularBox}>
                 <Text style = {mainGamePageStyles.gameFormularBoxText}>{formular}</Text>
             </View>
-            {result === 'x' && <Bad />}
-            {result === 'o' && <Good />}
+            <View style = {mainGamePageStyles.gameBoardBox}>
+                <Text style = {mainGamePageStyles.gameScoreText}>score : {right}</Text>
+                <Text style = {mainGamePageStyles.gameWarningText}>warning : {wrong}</Text>
+            </View>
             <View style = {mainGamePageStyles.gameSelectButtonCollection}>
                 <TouchableOpacity style = {mainGamePageStyles.gameAnswerBelowButtonBox} onPress = {() => {belowAnswer(); setRandomFormular();}}>
                     <Text style = {mainGamePageStyles.gameAnswerBelowButtonBoxText}>{route.params.number}&lt;</Text>

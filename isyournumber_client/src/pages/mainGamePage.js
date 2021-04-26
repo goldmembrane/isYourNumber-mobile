@@ -21,41 +21,24 @@ const mainGamePageStyles = StyleSheet.create({
         marginLeft: 20,
     },
 
-    // main game setted number box style
-    gameSettedNumberBox: {
-        width: 100,
-        height: 60,
-        marginTop: 100,
-        alignSelf: 'center',
-        backgroundColor: '#00c6fb',
-    },
-
-    // main game setted number box text style
-
-    gameSettedNumberBoxText: {
-        fontSize: 30,
-        textAlign: 'center',
-        lineHeight: 60,
-        fontWeight: 'bold'
-    },
-
     // main game formular box style
     gameFormularBox: {
-        width: 250,
-        height: 90,
+        width: 300,
+        height: 140,
         alignSelf: 'center',
         backgroundColor: '#4fb576',
         borderRadius: 15,
         borderStyle: 'solid',
         borderWidth: 10,
         borderColor: '#e6b980',
+        marginTop: 120,
     },
 
     // main game formular box text style
     gameFormularBoxText: {
         fontSize: 34,
         textAlign: 'center',
-        lineHeight: 70,
+        lineHeight: 120,
         fontWeight: 'bold'
     },
 
@@ -78,7 +61,7 @@ const mainGamePageStyles = StyleSheet.create({
 
     // main game below box test style
     gameAnswerBelowButtonBoxText: {
-        fontSize: 30,
+        fontSize: 40,
         textAlign: 'center',
         color: '#ffffff',
         fontWeight: 'bold',
@@ -93,7 +76,7 @@ const mainGamePageStyles = StyleSheet.create({
 
     // main game answer box text style
     gameAnswerButtonBoxText: {
-        fontSize: 30,
+        fontSize: 40,
         textAlign: 'center',
         color: '#ffffff',
         fontWeight: 'bold',
@@ -108,7 +91,7 @@ const mainGamePageStyles = StyleSheet.create({
 
     // main game among answer button text box
     gameAnswerAmongButtonBoxText: {
-        fontSize: 30,
+        fontSize: 40,
         textAlign: 'center',
         color: '#ffffff',
         fontWeight: 'bold',
@@ -212,9 +195,6 @@ const MainGamePage = ({ navigation, route }) => {
                 timeLabels = {{s: null}}
                 digitStyle = {{backgroundColor: '#00c6fb'}}
                 />
-            </View>
-            <View style = {mainGamePageStyles.gameSettedNumberBox}>
-                <Text style = {mainGamePageStyles.gameSettedNumberBoxText}>{route.params.number}</Text>
             </View>
             <View style = {mainGamePageStyles.gameFormularBox}>
                 <Text style = {mainGamePageStyles.gameFormularBoxText}>{formular}</Text>

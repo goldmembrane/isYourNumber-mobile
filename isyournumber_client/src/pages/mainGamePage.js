@@ -56,12 +56,16 @@ const mainGamePageStyles = StyleSheet.create({
     gameScoreText: {
         fontSize: 20,
         textAlign: 'center',
+        fontWeight: '600',
+        color: '#2575fc',
     },
 
     // main game board warning text style
     gameWarningText: {
         fontSize: 20,
         textAlign: 'center',
+        fontWeight: '600',
+        color: '#f5576c',
     },
 
     // main game select collection box style

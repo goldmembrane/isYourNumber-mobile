@@ -44,6 +44,7 @@ const titlePageStyles = StyleSheet.create({
         fontSize: 20,
         textAlign: 'center',
         lineHeight: 60,
+        fontWeight: '600',
     },
 
     // show ranks button box style
@@ -61,6 +62,7 @@ const titlePageStyles = StyleSheet.create({
         fontSize: 20,
         textAlign: 'center',
         lineHeight: 60,
+        fontWeight: '600',
     }
 })
 
@@ -108,7 +110,7 @@ const TitlePage = ({navigation}) => {
             {/* show game ranks button box */}
             <AnimatedView style = {rankButtonAnimate}>
                 <TouchableOpacity style = {titlePageStyles.rankButtonBox} onPress = {() => navigation.navigate('Rank')}>
-                    <Text style = {titlePageStyles.rankButtonBoxText}>Ranks</Text>
+                    <Text style = {titlePageStyles.rankButtonBoxText}>RANKS</Text>
                 </TouchableOpacity>
             </AnimatedView>
         </>

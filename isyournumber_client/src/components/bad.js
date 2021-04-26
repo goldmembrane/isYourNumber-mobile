@@ -1,5 +1,8 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
+import { useSpring, animated } from 'react-spring'
+
+const AnimatedView = animated(View)
 
 const badStyles = StyleSheet.create({
     
@@ -20,11 +23,21 @@ const badStyles = StyleSheet.create({
 })
 
 const Bad = () => {
+
+    // bad box에 animation을 연결하는 코드
+    const badAnimate = useSpring({
+        opacity: 0,
+        from: {opacity: 1},
+        delay: 200,
+    })
+
     return (
         <>
-            <View style = {badStyles.badBox}>
-                <Text style = {badStyles.badBoxText}>X</Text>
-            </View>
+            <AnimatedView style = {badAnimate}>
+                <View style = {badStyles.badBox}>
+                    <Text style = {badStyles.badBoxText}>X</Text>
+                </View>
+            </AnimatedView>
         </>
     )
 }

@@ -1,5 +1,8 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
+import { useSpring, animated } from 'react-spring'
+
+const AnimatedView = animated(View)
 
 const goodStyles = StyleSheet.create({
 
@@ -20,11 +23,21 @@ const goodStyles = StyleSheet.create({
 })
 
 const Good = () => {
+
+    // good box에 animation 연결하는 코드
+    const goodAnimate = useSpring({
+        opacity: 0,
+        from: {opacity: 1},
+        delay: 200,
+    })
+
     return (
         <>
-            <View style = {goodStyles.goodBox}>
-                <Text style = {goodStyles.goodBoxText}>O</Text>
-            </View>
+            <AnimatedView style = {goodAnimate}>
+                <View style = {goodStyles.goodBox}>
+                    <Text style = {goodStyles.goodBoxText}>O</Text>
+                </View>
+            </AnimatedView>
         </>
     )
 }

@@ -26,9 +26,10 @@ const Bad = () => {
 
     // bad box에 animation을 연결하는 코드
     const badAnimate = useSpring({
-        opacity: 0,
-        from: {opacity: 1},
-        delay: 200,
+        loop: {reverse: true},
+        from: { opacity: 1 },
+        to: { opacity: 0 },
+        config: {duration: 500},
     })
 
     return (

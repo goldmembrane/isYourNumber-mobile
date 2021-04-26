@@ -142,18 +142,20 @@ const MainGamePage = ({ navigation, route }) => {
        }else {
            setRandomFormular()
        }
+
     }
 
     // formular와 랜덤 숫자를 비교하여 formular가 더 낮을 경우에 발동하는 함수
     const belowAnswer = () => {
+        
         if ( eval(formular) < route.params.number ) {
             setRight(right + 1)
-            setResult('o')
             console.log('right :',right)
+            setResult('o')
         }else {
             setWrong(wrong + 1)
-            setResult('x')
             console.log('wrong :',wrong)
+            setResult('x')
             if ( wrong > 2 ) {
                 navigation.navigate('End', {score: right})
             }
@@ -162,14 +164,15 @@ const MainGamePage = ({ navigation, route }) => {
 
     // formular와 랜덤 숫자를 비교하여 formular값과 같은 경우에 발동하는 함수
     const sameAnswer = () => {
+        
         if ( eval(formular) === route.params.number ) {
             setRight(right + 1)
-            setResult('o')
             console.log('right :',right)
+            setResult('o')
         }else {
             setWrong(wrong + 1)
-            setResult('x')
             console.log('wrong :',wrong)
+            setResult('x')
             if ( wrong > 2 ) {
                 navigation.navigate('End',{score: right})
             }
@@ -178,14 +181,15 @@ const MainGamePage = ({ navigation, route }) => {
 
     // formular와 랜덤 숫자를 비교하여 formular가 더 높을 경우에 발동하는 함수
     const amongAnswer = () => {
+        
         if ( eval(formular) > route.params.number ) {
             setRight(right + 1)
-            setResult('o')
             console.log('right :',right)
+            setResult('o')
         }else {
             setWrong(wrong + 1)
-            setResult('x')
             console.log('wrong :',wrong)
+            setResult('x')
             if ( wrong > 2 ) {
                 navigation.navigate('End', {score: right})
             }
@@ -215,8 +219,8 @@ const MainGamePage = ({ navigation, route }) => {
             <View style = {mainGamePageStyles.gameFormularBox}>
                 <Text style = {mainGamePageStyles.gameFormularBoxText}>{formular}</Text>
             </View>
-            {result === 'o' && <Good />}
             {result === 'x' && <Bad />}
+            {result === 'o' && <Good />}
             <View style = {mainGamePageStyles.gameSelectButtonCollection}>
                 <TouchableOpacity style = {mainGamePageStyles.gameAnswerBelowButtonBox} onPress = {() => {belowAnswer(); setRandomFormular();}}>
                     <Text style = {mainGamePageStyles.gameAnswerBelowButtonBoxText}>낮다</Text>

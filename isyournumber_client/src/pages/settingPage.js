@@ -14,7 +14,7 @@ const settingPageStyles = StyleSheet.create({
         height: 80,
         alignSelf: 'center',
         backgroundColor: '#38f9d7',
-        marginTop: 200,
+        marginTop: 175,
         alignItems: 'center',
         borderRadius: 20,
     },

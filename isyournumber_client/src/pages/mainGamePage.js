@@ -223,13 +223,13 @@ const MainGamePage = ({ navigation, route }) => {
             {result === 'o' && <Good />}
             <View style = {mainGamePageStyles.gameSelectButtonCollection}>
                 <TouchableOpacity style = {mainGamePageStyles.gameAnswerBelowButtonBox} onPress = {() => {belowAnswer(); setRandomFormular();}}>
-                    <Text style = {mainGamePageStyles.gameAnswerBelowButtonBoxText}>낮다</Text>
+                    <Text style = {mainGamePageStyles.gameAnswerBelowButtonBoxText}>{route.params.number}&lt;</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style = {mainGamePageStyles.gameAnswerButtonBox} onPress = {() => {sameAnswer(); setRandomFormular();}}>
-                    <Text style = {mainGamePageStyles.gameAnswerButtonBoxText}>맞다</Text>
+                    <Text style = {mainGamePageStyles.gameAnswerButtonBoxText}>{route.params.number}</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style = {mainGamePageStyles.gameAnswerAmongButtonBox} onPress = {() => {amongAnswer(); setRandomFormular();}}>
-                    <Text style = {mainGamePageStyles.gameAnswerAmongButtonBoxText}>높다</Text>
+                    <Text style = {mainGamePageStyles.gameAnswerAmongButtonBoxText}>&gt;{route.params.number}</Text>
                 </TouchableOpacity>
             </View>
         </>

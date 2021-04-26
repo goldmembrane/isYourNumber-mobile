@@ -11,7 +11,7 @@ const gameOverPageStyles = StyleSheet.create({
     gameOverBox: {
         width: 250,
         height: 90,
-        marginTop: 250,
+        marginTop: 200,
         backgroundColor: '#74ebd5',
         alignSelf: 'center',
         borderRadius: 15,
@@ -44,7 +44,7 @@ const gameOverPageStyles = StyleSheet.create({
     saveScoreButtonBox: {
         width: 175,
         height: 60,
-        marginTop: 50,
+        marginTop: 80,
         alignSelf: 'center',
         backgroundColor: '#b1f4cf',
         borderRadius: 10,
@@ -67,7 +67,7 @@ const gameOverPageStyles = StyleSheet.create({
     returnToHomeButtonBox: {
         width: 175,
         height: 60,
-        marginTop: 50,
+        marginTop: 80,
         alignSelf: 'center',
         backgroundColor: '#fa709a',
         borderRadius: 10,

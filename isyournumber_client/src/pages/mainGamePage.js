@@ -71,9 +71,9 @@ const mainGamePageStyles = StyleSheet.create({
 
     // main game below box style
     gameAnswerBelowButtonBox: {
-        flex: .3,
+        flex: .325,
         backgroundColor: '#453a94',
-        height: 200,
+        height: 180,
     },
 
     // main game below box test style
@@ -82,12 +82,12 @@ const mainGamePageStyles = StyleSheet.create({
         textAlign: 'center',
         color: '#ffffff',
         fontWeight: 'bold',
-        lineHeight: 200,
+        lineHeight: 180,
     },
 
     // main game answer box style
     gameAnswerButtonBox: {
-        flex: .4,
+        flex: .35,
         backgroundColor: '#e5b2ca',
     },
 
@@ -97,12 +97,12 @@ const mainGamePageStyles = StyleSheet.create({
         textAlign: 'center',
         color: '#ffffff',
         fontWeight: 'bold',
-        lineHeight: 200,
+        lineHeight: 180,
     },
 
     // main game among answer button box
     gameAnswerAmongButtonBox: {
-        flex: .3,
+        flex: .325,
         backgroundColor: '#13547a',
     },
 
@@ -112,7 +112,7 @@ const mainGamePageStyles = StyleSheet.create({
         textAlign: 'center',
         color: '#ffffff',
         fontWeight: 'bold',
-        lineHeight: 200,
+        lineHeight: 180,
     },
 })
 

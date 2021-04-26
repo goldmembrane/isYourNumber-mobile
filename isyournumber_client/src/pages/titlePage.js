@@ -17,7 +17,7 @@ const titlePageStyles = StyleSheet.create({
         height: 80,
         alignSelf: 'center',
         backgroundColor: '#a1c4fd',
-        marginTop: 200,
+        marginTop: 175,
         borderRadius: 15,
     },
 

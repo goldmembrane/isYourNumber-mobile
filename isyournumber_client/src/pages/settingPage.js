@@ -42,6 +42,7 @@ const settingPageStyles = StyleSheet.create({
         fontSize: 20,
         textAlign: 'center',
         lineHeight: 60,
+        fontWeight: '700',
     },
 
     // (setting version) invisible game start button box style

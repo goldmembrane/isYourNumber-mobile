@@ -21,42 +21,51 @@ const mainGamePageStyles = StyleSheet.create({
         marginLeft: 20,
     },
 
-    // main game setted number box style
-    gameSettedNumberBox: {
-        width: 100,
-        height: 60,
-        marginTop: 100,
-        alignSelf: 'center',
-        backgroundColor: '#00c6fb',
-    },
-
-    // main game setted number box text style
-
-    gameSettedNumberBoxText: {
-        fontSize: 30,
-        textAlign: 'center',
-        lineHeight: 60,
-        fontWeight: 'bold'
-    },
-
     // main game formular box style
     gameFormularBox: {
-        width: 250,
-        height: 90,
+        width: 300,
+        height: 140,
         alignSelf: 'center',
         backgroundColor: '#4fb576',
         borderRadius: 15,
         borderStyle: 'solid',
         borderWidth: 10,
         borderColor: '#e6b980',
+        marginTop: 120,
     },
 
     // main game formular box text style
     gameFormularBoxText: {
-        fontSize: 34,
+        fontSize: 42,
         textAlign: 'center',
-        lineHeight: 70,
+        lineHeight: 120,
         fontWeight: 'bold'
+    },
+
+    // main game board box style
+    gameBoardBox: {
+        width: 300,
+        height: 60,
+        marginBottom: 30,
+        alignSelf: 'center',
+        alignItems: 'center',
+        marginTop: 50,
+    },
+
+    // main game board score text style
+    gameScoreText: {
+        fontSize: 20,
+        textAlign: 'center',
+        fontWeight: '600',
+        color: '#2575fc',
+    },
+
+    // main game board warning text style
+    gameWarningText: {
+        fontSize: 20,
+        textAlign: 'center',
+        fontWeight: '600',
+        color: '#f5576c',
     },
 
     // main game select collection box style
@@ -72,13 +81,13 @@ const mainGamePageStyles = StyleSheet.create({
     // main game below box style
     gameAnswerBelowButtonBox: {
         flex: .325,
-        backgroundColor: '#453a94',
+        backgroundColor: '#0ba360',
         height: 180,
     },
 
     // main game below box test style
     gameAnswerBelowButtonBoxText: {
-        fontSize: 30,
+        fontSize: 40,
         textAlign: 'center',
         color: '#ffffff',
         fontWeight: 'bold',
@@ -88,12 +97,12 @@ const mainGamePageStyles = StyleSheet.create({
     // main game answer box style
     gameAnswerButtonBox: {
         flex: .35,
-        backgroundColor: '#e5b2ca',
+        backgroundColor: '#fee140',
     },
 
     // main game answer box text style
     gameAnswerButtonBoxText: {
-        fontSize: 30,
+        fontSize: 40,
         textAlign: 'center',
         color: '#ffffff',
         fontWeight: 'bold',
@@ -103,12 +112,12 @@ const mainGamePageStyles = StyleSheet.create({
     // main game among answer button box
     gameAnswerAmongButtonBox: {
         flex: .325,
-        backgroundColor: '#13547a',
+        backgroundColor: '#feada6',
     },
 
     // main game among answer button text box
     gameAnswerAmongButtonBoxText: {
-        fontSize: 30,
+        fontSize: 40,
         textAlign: 'center',
         color: '#ffffff',
         fontWeight: 'bold',
@@ -127,7 +136,7 @@ const MainGamePage = ({ navigation, route }) => {
     const [ right, setRight ] = useState(0)
 
     // 오답일 경우에 숫자가 증가하는 wrong state
-    const [ wrong, setWrong ] = useState(1)
+    const [ wrong, setWrong ] = useState(0)
 
     // 맞췄는지 틀렸는지 판단하고 저장하는 state
     const [ result, setResult ] = useState(null)
@@ -156,7 +165,7 @@ const MainGamePage = ({ navigation, route }) => {
             setWrong(wrong + 1)
             console.log('wrong :',wrong)
             setResult('x')
-            if ( wrong > 2 ) {
+            if ( wrong > 1 ) {
                 navigation.navigate('End', {score: right})
             }
         }
@@ -173,7 +182,7 @@ const MainGamePage = ({ navigation, route }) => {
             setWrong(wrong + 1)
             console.log('wrong :',wrong)
             setResult('x')
-            if ( wrong > 2 ) {
+            if ( wrong > 1 ) {
                 navigation.navigate('End',{score: right})
             }
         }
@@ -190,7 +199,7 @@ const MainGamePage = ({ navigation, route }) => {
             setWrong(wrong + 1)
             console.log('wrong :',wrong)
             setResult('x')
-            if ( wrong > 2 ) {
+            if ( wrong > 1 ) {
                 navigation.navigate('End', {score: right})
             }
         }
@@ -213,23 +222,22 @@ const MainGamePage = ({ navigation, route }) => {
                 digitStyle = {{backgroundColor: '#00c6fb'}}
                 />
             </View>
-            <View style = {mainGamePageStyles.gameSettedNumberBox}>
-                <Text style = {mainGamePageStyles.gameSettedNumberBoxText}>{route.params.number}</Text>
-            </View>
             <View style = {mainGamePageStyles.gameFormularBox}>
                 <Text style = {mainGamePageStyles.gameFormularBoxText}>{formular}</Text>
             </View>
-            {result === 'x' && <Bad />}
-            {result === 'o' && <Good />}
+            <View style = {mainGamePageStyles.gameBoardBox}>
+                <Text style = {mainGamePageStyles.gameScoreText}>score : {right}</Text>
+                <Text style = {mainGamePageStyles.gameWarningText}>warning : {wrong}</Text>
+            </View>
             <View style = {mainGamePageStyles.gameSelectButtonCollection}>
                 <TouchableOpacity style = {mainGamePageStyles.gameAnswerBelowButtonBox} onPress = {() => {belowAnswer(); setRandomFormular();}}>
-                    <Text style = {mainGamePageStyles.gameAnswerBelowButtonBoxText}>낮다</Text>
+                    <Text style = {mainGamePageStyles.gameAnswerBelowButtonBoxText}>{route.params.number}&lt;</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style = {mainGamePageStyles.gameAnswerButtonBox} onPress = {() => {sameAnswer(); setRandomFormular();}}>
-                    <Text style = {mainGamePageStyles.gameAnswerButtonBoxText}>맞다</Text>
+                    <Text style = {mainGamePageStyles.gameAnswerButtonBoxText}>{route.params.number}</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style = {mainGamePageStyles.gameAnswerAmongButtonBox} onPress = {() => {amongAnswer(); setRandomFormular();}}>
-                    <Text style = {mainGamePageStyles.gameAnswerAmongButtonBoxText}>높다</Text>
+                    <Text style = {mainGamePageStyles.gameAnswerAmongButtonBoxText}>&gt;{route.params.number}</Text>
                 </TouchableOpacity>
             </View>
         </>

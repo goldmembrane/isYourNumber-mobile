@@ -38,6 +38,7 @@ const gameOverPageStyles = StyleSheet.create({
         fontSize: 26,
         textAlign: 'center',
         lineHeight: 60,
+        color: '#0ba360',
     },
 
     // save score button box style
@@ -55,6 +56,7 @@ const gameOverPageStyles = StyleSheet.create({
         fontSize: 28,
         textAlign: 'center',
         lineHeight: 60,
+        fontWeight: '600',
     },
 
     // save score button box style if shown state is false

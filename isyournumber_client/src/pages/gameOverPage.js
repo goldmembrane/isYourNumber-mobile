@@ -102,7 +102,7 @@ const GameoverPage = ({ navigation, route }) => {
 
     // 버튼을 누르면 현재 score를 server에 저장하는 함수
     const saveScore = () => {
-        fetch('http://localhost:7500/rank', {
+        fetch('http://10.0.2.2:7500/rank', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -112,6 +112,7 @@ const GameoverPage = ({ navigation, route }) => {
             }),
         })
         .then((response) => console.log(response))
+        .catch((error) => console.log(error))
     }
 
     return(

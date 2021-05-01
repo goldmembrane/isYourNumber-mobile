@@ -3,7 +3,7 @@ module.exports = {
         username: 'selectnumber',
         password: process.env.DATABASE_PASSWORD,
         database: 'isyournumber',
-        host: 'localhost',
+        host: 'isyournumber.csmeh7i5hzpa.ap-northeast-2.rds.amazonaws.com',
         dialect: 'mysql',
         logging: false,
     }

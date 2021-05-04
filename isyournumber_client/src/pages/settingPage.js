@@ -4,6 +4,7 @@ import { View, Text, TouchableOpacity,StyleSheet } from 'react-native'
 import { useState } from 'react'
 import AnimatedNumbers from 'react-native-animated-numbers'
 import * as random from '../modules/random'
+import { BannerAd, BannerAdSize, TestId, TestIds } from '@react-native-firebase/admob'
 
 // setting page의 style을 구성할 코드
 const settingPageStyles = StyleSheet.create({
@@ -68,6 +69,14 @@ const settingPageStyles = StyleSheet.create({
         lineHeight: 60,
         color: '#ffffff',
         fontWeight: 'bold',
+    },
+
+    settingFooterAd: {
+        flex: 1,
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        bottom: 0,
     }
 })
 
@@ -104,6 +113,14 @@ const SettingPage = ({ navigation }) => {
             <TouchableOpacity style = {!number ? settingPageStyles.invisibleGameStartButtonBox : settingPageStyles.gameStartButtonBox} onPress = {() => navigation.navigate('Game', {number: number})}>
                 <Text style = {settingPageStyles.gameStartButtonBoxText}>Game Start!</Text>
             </TouchableOpacity>
+            <View style = {settingPageStyles.settingFooterAd}>
+                <BannerAd 
+                    unitId = {TestIds.BANNER}
+                    size = {BannerAdSize.FULL_BANNER}
+                    requestOptions = {{
+                        requestNonPersonalizedAdsOnly: true
+                    }}/>
+            </View>
         </>
     )
 }

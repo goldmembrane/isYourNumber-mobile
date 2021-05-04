@@ -48,7 +48,7 @@
 
 ![gameover](https://user-images.githubusercontent.com/49430407/117022744-6f77ed80-ad33-11eb-85f2-a0f712c32e86.gif)
 
-경고가 +3이상이면, 게임이 종료되고 game over page로 전환됩니다.
+경고가 +3이면, 게임이 종료되고 game over page로 전환됩니다.
 
 ### 5. Game Over
 

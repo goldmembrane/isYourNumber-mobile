@@ -3,9 +3,8 @@ import React, { useEffect } from 'react'
 import { View, Text, TouchableOpacity,StyleSheet } from 'react-native'
 import { useState } from 'react'
 import CountDown from 'react-native-countdown-component'
-import Good from '../components/good'
-import Bad from '../components/bad'
 import * as random from '../modules/random'
+import { BannerAd, BannerAdSize, TestIds } from '@react-native-firebase/admob'
 
 
 // main game page의 style을 구성할 코드
@@ -91,7 +90,7 @@ const mainGamePageStyles = StyleSheet.create({
         textAlign: 'center',
         color: '#ffffff',
         fontWeight: 'bold',
-        lineHeight: 180,
+        lineHeight: 140,
     },
 
     // main game answer box style
@@ -106,7 +105,7 @@ const mainGamePageStyles = StyleSheet.create({
         textAlign: 'center',
         color: '#ffffff',
         fontWeight: 'bold',
-        lineHeight: 180,
+        lineHeight: 140,
     },
 
     // main game among answer button box
@@ -121,8 +120,16 @@ const mainGamePageStyles = StyleSheet.create({
         textAlign: 'center',
         color: '#ffffff',
         fontWeight: 'bold',
-        lineHeight: 180,
+        lineHeight: 140,
     },
+
+    mainPageFooterAd: {
+        flex: 1,
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        bottom: 0,
+    }
 })
 
 // main game page의 화면을 구성할 코드
@@ -239,6 +246,14 @@ const MainGamePage = ({ navigation, route }) => {
                 <TouchableOpacity style = {mainGamePageStyles.gameAnswerAmongButtonBox} onPress = {() => {amongAnswer(); setRandomFormular();}}>
                     <Text style = {mainGamePageStyles.gameAnswerAmongButtonBoxText}>&gt;{route.params.number}</Text>
                 </TouchableOpacity>
+            </View>
+            <View style = {mainGamePageStyles.mainPageFooterAd}>
+                <BannerAd 
+                    unitId = {TestIds.BANNER}
+                    size = {BannerAdSize.FULL_BANNER}
+                    requestOptions = {{
+                        requestNonPersonalizedAdsOnly: true
+                    }}/>
             </View>
         </>
     )

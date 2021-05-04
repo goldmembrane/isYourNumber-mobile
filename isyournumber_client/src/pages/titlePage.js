@@ -2,6 +2,7 @@
 import React from 'react'
 import { View, Text, TouchableOpacity ,StyleSheet } from 'react-native'
 import { useSpring, animated } from 'react-spring'
+import { BannerAd, BannerAdSize, TestIds } from '@react-native-firebase/admob'
 
 
 // title에 animation을 연결하는 코드

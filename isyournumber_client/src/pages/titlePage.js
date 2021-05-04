@@ -64,7 +64,15 @@ const titlePageStyles = StyleSheet.create({
         textAlign: 'center',
         lineHeight: 60,
         fontWeight: '600',
-    }
+    },
+
+    footerAd: {
+        flex: 1,
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        bottom: 0,
+    },
 })
 
 
@@ -114,6 +122,14 @@ const TitlePage = ({navigation}) => {
                     <Text style = {titlePageStyles.rankButtonBoxText}>RANKS</Text>
                 </TouchableOpacity>
             </AnimatedView>
+            <View style = {titlePageStyles.footerAd}>
+                <BannerAd 
+                    unitId = {TestIds.BANNER}
+                    size = {BannerAdSize.FULL_BANNER}
+                    requestOptions = {{
+                        requestNonPersonalizedAdsOnly: true
+                    }}/>
+            </View>
         </>
     )
 }

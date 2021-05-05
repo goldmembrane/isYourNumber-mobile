@@ -8,6 +8,8 @@ import { BannerAd, BannerAdSize, TestIds } from '@react-native-firebase/admob'
 // title에 animation을 연결하는 코드
 const AnimatedView = animated(View)
 
+// develop version이면 test id를, release version이면 admob id를 부여하는 변수
+const adUnitIds = __DEV__ ? TestIds.BANNER : 'ca-app-pub-8799724102859231/4737367263'
 
 // title page의 style을 구성할 코드
 const titlePageStyles = StyleSheet.create({
@@ -124,7 +126,7 @@ const TitlePage = ({navigation}) => {
             </AnimatedView>
             <View style = {titlePageStyles.footerAd}>
                 <BannerAd 
-                    unitId = {TestIds.BANNER}
+                    unitId = {adUnitIds}
                     size = {BannerAdSize.FULL_BANNER}
                     requestOptions = {{
                         requestNonPersonalizedAdsOnly: true

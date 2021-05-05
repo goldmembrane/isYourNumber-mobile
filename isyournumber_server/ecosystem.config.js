@@ -1,5 +1,5 @@
 module.exports = {
-    apps : [
+    app : [
         {
           name: "isyournumber",
           script: "./App.js",

@@ -4,7 +4,10 @@ import { View, Text, TouchableOpacity,StyleSheet } from 'react-native'
 import { useState } from 'react'
 import AnimatedNumbers from 'react-native-animated-numbers'
 import * as random from '../modules/random'
-import { BannerAd, BannerAdSize, TestId, TestIds } from '@react-native-firebase/admob'
+import { BannerAd, BannerAdSize, TestIds } from '@react-native-firebase/admob'
+
+// develop version이면 test id를, release version이면 admob id를 부여하는 변수
+const adUnitIds = __DEV__ ? TestIds.BANNER : 'ca-app-pub-8799724102859231/4737367263'
 
 // setting page의 style을 구성할 코드
 const settingPageStyles = StyleSheet.create({
@@ -115,7 +118,7 @@ const SettingPage = ({ navigation }) => {
             </TouchableOpacity>
             <View style = {settingPageStyles.settingFooterAd}>
                 <BannerAd 
-                    unitId = {TestIds.BANNER}
+                    unitId = {adUnitIds}
                     size = {BannerAdSize.FULL_BANNER}
                     requestOptions = {{
                         requestNonPersonalizedAdsOnly: true

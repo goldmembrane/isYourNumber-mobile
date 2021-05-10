@@ -33,13 +33,13 @@ const mainGamePageStyles = StyleSheet.create({
         borderWidth: 10,
         borderColor: '#e6b980',
         marginTop: 120,
+        alignItems: 'center',
+        justifyContent: 'center',
     },
 
     // main game formular box text style
     gameFormularBoxText: {
         fontSize: 42,
-        textAlign: 'center',
-        lineHeight: 120,
         fontWeight: 'bold'
     },
 
@@ -51,12 +51,12 @@ const mainGamePageStyles = StyleSheet.create({
         alignSelf: 'center',
         alignItems: 'center',
         marginTop: 50,
+        justifyContent: 'center',
     },
 
     // main game board score text style
     gameScoreText: {
         fontSize: 20,
-        textAlign: 'center',
         fontWeight: '600',
         color: '#2575fc',
     },
@@ -64,7 +64,6 @@ const mainGamePageStyles = StyleSheet.create({
     // main game board warning text style
     gameWarningText: {
         fontSize: 20,
-        textAlign: 'center',
         fontWeight: '600',
         color: '#f5576c',
     },

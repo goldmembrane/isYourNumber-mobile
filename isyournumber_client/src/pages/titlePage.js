@@ -22,13 +22,13 @@ const titlePageStyles = StyleSheet.create({
         backgroundColor: '#a1c4fd',
         marginTop: 175,
         borderRadius: 15,
+        alignItems: 'center',
+        justifyContent: 'center',
     },
 
     // title box text style
     titleBoxText: {
         fontSize: 30,
-        textAlign: 'center',
-        lineHeight: 80,
         fontWeight: 'bold',
     },
 
@@ -40,13 +40,13 @@ const titlePageStyles = StyleSheet.create({
         backgroundColor: '#8fd3f4',
         marginTop: 200,
         borderRadius: 10,
+        alignItems: 'center',
+        justifyContent: 'center',
     },
 
     // game start button text style
     startGameButtonBoxText: {
         fontSize: 20,
-        textAlign: 'center',
-        lineHeight: 60,
         fontWeight: '600',
     },
 
@@ -58,13 +58,13 @@ const titlePageStyles = StyleSheet.create({
         backgroundColor: '#f68084',
         marginTop: 30,
         borderRadius: 10,
+        alignItems: 'center',
+        justifyContent: 'center',
     },
 
     // show ranks button text style
     rankButtonBoxText: {
         fontSize: 20,
-        textAlign: 'center',
-        lineHeight: 60,
         fontWeight: '600',
     },
 

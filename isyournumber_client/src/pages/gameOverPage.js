@@ -15,14 +15,14 @@ const gameOverPageStyles = StyleSheet.create({
         backgroundColor: '#74ebd5',
         alignSelf: 'center',
         borderRadius: 15,
+        alignItems: 'center',
+        justifyContent: 'center',
     },
 
     // game over를 표시할 box text style
     gameOverBoxText: {
         fontSize: 36,
-        textAlign: 'center',
         fontWeight: 'bold',
-        lineHeight: 90,
     },
 
     // score box style
@@ -31,13 +31,13 @@ const gameOverPageStyles = StyleSheet.create({
         height: 60,
         marginTop: 50,
         alignSelf: 'center',
+        alignItems: 'center',
+        justifyContent: 'center',
     },
 
     // score box text style
     gameScoreBoxText: {
         fontSize: 26,
-        textAlign: 'center',
-        lineHeight: 60,
         color: '#0ba360',
     },
 
@@ -49,13 +49,13 @@ const gameOverPageStyles = StyleSheet.create({
         alignSelf: 'center',
         backgroundColor: '#b1f4cf',
         borderRadius: 10,
+        alignItems: 'center',
+        justifyContent: 'center',
     },
 
     // save score button box text style
     saveScoreButtonBoxText: {
         fontSize: 28,
-        textAlign: 'center',
-        lineHeight: 60,
         fontWeight: '600',
     },
 
@@ -73,13 +73,13 @@ const gameOverPageStyles = StyleSheet.create({
         alignSelf: 'center',
         backgroundColor: '#fa709a',
         borderRadius: 10,
+        alignItems: 'center',
+        justifyContent: 'center',
     },
 
     // return to home button box text style
     returnToHomeButtonBoxText: {
         fontSize: 24,
-        textAlign: 'center',
-        lineHeight: 60,
     },
 
     // return to home button box style if shown is false

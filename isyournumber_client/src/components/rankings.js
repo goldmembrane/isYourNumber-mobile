@@ -12,14 +12,14 @@ const rankingsStyles = StyleSheet.create({
         height: 100,
         backgroundColor: '#2b5876',
         alignSelf: 'center',
+        alignItems: 'center',
+        justifyContent: 'center',
         marginTop: 16,
     },
 
     // rankings box text style
     rankingsBoxText: {
         fontSize: 45,
-        lineHeight: 100,
-        textAlign: 'center',
         fontWeight: 'bold',
     }
 })

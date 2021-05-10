@@ -21,13 +21,12 @@ const settingPageStyles = StyleSheet.create({
         marginTop: 175,
         alignItems: 'center',
         borderRadius: 20,
+        justifyContent: 'center',
     },
 
     // random number box text style
     randomNumberBoxText: {
         fontSize: 30,
-        textAlign: 'center',
-        lineHeight: 80,
         fontWeight: 'bold',
     },
 
@@ -39,13 +38,13 @@ const settingPageStyles = StyleSheet.create({
         backgroundColor: '#fa71cd',
         marginTop: 250,
         borderRadius: 10,
+        alignItems: 'center',
+        justifyContent: 'center',
     },
 
     // setting number button box text style
     setNumberBoxText:{
         fontSize: 20,
-        textAlign: 'center',
-        lineHeight: 60,
         fontWeight: '700',
     },
 
@@ -63,13 +62,13 @@ const settingPageStyles = StyleSheet.create({
         backgroundColor: '#209cff',
         marginTop: 250,
         borderRadius: 10,
+        alignItems: 'center',
+        justifyContent: 'center',
     },
 
     // (setting version) game start button box text style
     gameStartButtonBoxText: {
         fontSize: 20,
-        textAlign: 'center',
-        lineHeight: 60,
         color: '#ffffff',
         fontWeight: 'bold',
     },

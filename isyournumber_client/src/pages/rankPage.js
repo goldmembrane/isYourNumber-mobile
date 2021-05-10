@@ -14,13 +14,13 @@ const rankPageStyles = StyleSheet.create({
         backgroundColor: '#0fd850',
         marginTop: 50,
         marginLeft: 10,
+        alignItems: 'center',
+        justifyContent: 'center',
     },
 
     goBackBoxText: {
         fontSize: 26,
-        lineHeight: 50,
         fontWeight: 'bold',
-        textAlign: 'center',
     },
 
     // rank page box style
@@ -30,6 +30,8 @@ const rankPageStyles = StyleSheet.create({
         backgroundColor: '#50c9c3',
         alignSelf: 'center',
         marginTop: 100,
+        alignItems: 'center',
+        justifyContent: 'center',
     }
 })
 

@@ -29,7 +29,7 @@ const rankPageStyles = StyleSheet.create({
         height: 600,
         backgroundColor: '#50c9c3',
         alignSelf: 'center',
-        marginTop: 100,
+        marginTop: 80,
         alignItems: 'center',
         justifyContent: 'center',
     }

@@ -55,7 +55,7 @@ const gameOverPageStyles = StyleSheet.create({
 
     // save score button box text style
     saveScoreButtonBoxText: {
-        fontSize: 28,
+        fontSize: 22,
         fontWeight: '600',
     },
 
@@ -79,7 +79,7 @@ const gameOverPageStyles = StyleSheet.create({
 
     // return to home button box text style
     returnToHomeButtonBoxText: {
-        fontSize: 24,
+        fontSize: 20,
     },
 
     // return to home button box style if shown is false

@@ -43,7 +43,7 @@ const gameOverPageStyles = StyleSheet.create({
 
     // save score button box style
     saveScoreButtonBox: {
-        width: 175,
+        width: 225,
         height: 60,
         marginTop: 80,
         alignSelf: 'center',
@@ -67,7 +67,7 @@ const gameOverPageStyles = StyleSheet.create({
 
     // return to home button box style
     returnToHomeButtonBox: {
-        width: 175,
+        width: 225,
         height: 60,
         marginTop: 80,
         alignSelf: 'center',

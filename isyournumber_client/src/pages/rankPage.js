@@ -9,8 +9,8 @@ import * as get from '../modules/get'
 const rankPageStyles = StyleSheet.create({
 
     goBackBox: {
-        width: 100,
-        height: 50,
+        width: 150,
+        height: 100,
         backgroundColor: '#0fd850',
         marginTop: 50,
         marginLeft: 10,
@@ -19,7 +19,7 @@ const rankPageStyles = StyleSheet.create({
     },
 
     goBackBoxText: {
-        fontSize: 26,
+        fontSize: 20,
         fontWeight: 'bold',
     },
 
